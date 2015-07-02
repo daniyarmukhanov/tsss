@@ -11,7 +11,7 @@
 
 @interface Team : NSObject
 
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSMutableArray *scored;
 @property (nonatomic, strong) NSMutableArray *conceded;
 @property (nonatomic, strong) NSMutableArray *corners;
