@@ -10,6 +10,10 @@
 
 @implementation Matches
 
+-(void) addComment:(NSString *)string{
+    [self.comments addObject:string];
+}
+
 
 
 @end

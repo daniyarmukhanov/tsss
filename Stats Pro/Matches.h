@@ -15,4 +15,6 @@
 @property (nonatomic, strong) NSMutableArray *comments;
 @property (nonatomic, strong) NSDate *date;
 
+-(void) addComment:(NSString *)string;
+
 @end
