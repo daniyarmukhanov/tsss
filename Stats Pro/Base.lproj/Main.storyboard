@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lQo-PP-AaF">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cii-O8-5T4">
@@ -40,19 +42,126 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="fJb-A8-oQX" kind="push" id="XyV-Xk-FOP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="h3I-zQ-DIP"/>
                     <connections>
                         <outlet property="tableView" destination="cii-O8-5T4" id="Dpv-7c-MIS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="173" y="88"/>
+            <point key="canvasLocation" x="525.33333333333337" y="83.306666666666672"/>
+        </scene>
+        <!--Uruguay Chile-->
+        <scene sceneID="fj0-YN-bwW">
+            <objects>
+                <viewController id="fJb-A8-oQX" customClass="DetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5VP-PC-bJC"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZwH-n4-Fnr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bWJ-EX-ShT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uru.png" translatesAutoresizingMaskIntoConstraints="NO" id="hbB-WN-hGf">
+                                <rect key="frame" x="37" y="91" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hbB-WN-hGf" secondAttribute="height" multiplier="1:1" id="Hbx-zr-dBJ"/>
+                                    <constraint firstAttribute="width" constant="75" id="RVy-Wh-KAo"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="July 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvr-i5-axY">
+                                <rect key="frame" x="137" y="118" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4HT-dx-gU9">
+                                <rect key="frame" x="6" y="-62" width="0.0" height="90"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scored" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHL-Zx-zNN">
+                                <rect key="frame" x="138" y="208" width="44" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="KtQ-uL-dZL"/>
+                                    <constraint firstAttribute="height" constant="21" id="sDd-OL-swe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cCl-aN-0GM">
+                                <rect key="frame" x="0.0" y="-12" width="15" height="15"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="84" id="cmO-ag-gVg"/>
+                                    <constraint firstAttribute="width" constant="15" id="gf0-Hv-Gg1"/>
+                                    <constraint firstAttribute="height" constant="15" id="iz9-yz-I4Y"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chile.png" translatesAutoresizingMaskIntoConstraints="NO" id="U8K-17-HWh">
+                                <rect key="frame" x="208" y="91" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="OSa-Hk-jOF"/>
+                                    <constraint firstAttribute="width" secondItem="U8K-17-HWh" secondAttribute="height" multiplier="1:1" id="vR5-5j-VQ3"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cCl-aN-0GM" firstAttribute="leading" secondItem="4HT-dx-gU9" secondAttribute="trailing" constant="-6" id="1lf-f8-Q1G"/>
+                            <constraint firstItem="U8K-17-HWh" firstAttribute="centerY" secondItem="hbB-WN-hGf" secondAttribute="centerY" id="E5K-C2-CRz"/>
+                            <constraint firstItem="Wvr-i5-axY" firstAttribute="centerX" secondItem="bWJ-EX-ShT" secondAttribute="centerX" id="RPY-cD-lxX"/>
+                            <constraint firstItem="hbB-WN-hGf" firstAttribute="leading" secondItem="bWJ-EX-ShT" secondAttribute="leadingMargin" constant="21" id="VtH-kY-JCm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U8K-17-HWh" secondAttribute="trailing" constant="21" id="eyv-vZ-2U4"/>
+                            <constraint firstItem="FHL-Zx-zNN" firstAttribute="top" secondItem="Wvr-i5-axY" secondAttribute="bottom" constant="69" id="ju3-GN-pCS"/>
+                            <constraint firstItem="FHL-Zx-zNN" firstAttribute="centerX" secondItem="Wvr-i5-axY" secondAttribute="centerX" id="rfG-5a-xdj"/>
+                            <constraint firstItem="Wvr-i5-axY" firstAttribute="centerY" secondItem="hbB-WN-hGf" secondAttribute="centerY" id="thc-8Z-Mvl"/>
+                            <constraint firstItem="hbB-WN-hGf" firstAttribute="top" secondItem="5VP-PC-bJC" secondAttribute="bottom" constant="27" id="yCa-6a-9mF"/>
+                            <constraint firstItem="U8K-17-HWh" firstAttribute="top" secondItem="hbB-WN-hGf" secondAttribute="top" id="zDR-lo-LqP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Uruguay Chile" id="47g-Pt-YyP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="voh-jF-JgF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="926" y="83"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ybx-Y3-52W">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lQo-PP-AaF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xt8-IU-vAD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="lzo-vc-a2G"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SUx-4D-u84" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="92.266666666666666" y="83.306666666666672"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chile.png" width="150" height="150"/>
+        <image name="uru.png" width="150" height="150"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
