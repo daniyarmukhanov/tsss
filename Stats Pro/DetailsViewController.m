@@ -9,7 +9,9 @@
 #import "DetailsViewController.h"
 
 @interface DetailsViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *result;
+
+@property (weak, nonatomic) IBOutlet UIImageView *redDot;
+@property (weak, nonatomic) IBOutlet UIImageView *orangeDot;
 
 
 @end
@@ -18,7 +20,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    self.orangeDot.backgroundColor=[UIColor orangeColor];
+    self.redDot.backgroundColor = [UIColor redColor];
+   for (int i=0; i<4; i++) {
+    UIImageView *dot = [UIImageView new];
+    dot.image = [UIImage imageNamed:@"circle.png"];
+    dot.backgroundColor = [UIColor greenColor];
+    dot.translatesAutoresizingMaskIntoConstraints = NO;
+       
+    [self.view addSubview:dot];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:dot attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.redDot attribute:NSLayoutAttributeRight multiplier:1 constant:(5*(i+1))+(17*i)]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:dot attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.redDot attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:dot attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.redDot attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:dot attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.redDot attribute:NSLayoutAttributeHeight multiplier:1 constant:0]];
+    }
+    for (int i=0; i<4; i++) {
+    UIImageView *dot = [UIImageView new];
+    dot.image = [UIImage imageNamed:@"circle.png"];
+    dot.backgroundColor = [UIColor greenColor];
+    dot.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:dot];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:dot attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.orangeDot attribute:NSLayoutAttributeRight multiplier:1 constant:-39-(i*22)]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:dot attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.redDot attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:dot attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.redDot attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:dot attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.redDot attribute:NSLayoutAttributeHeight multiplier:1 constant:0]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

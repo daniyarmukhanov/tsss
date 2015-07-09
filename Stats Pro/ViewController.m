@@ -73,7 +73,7 @@
                     match.date=object[@"day"];
                     NSArray *array=object[@"comments"];
                     match.comments=[array mutableCopy];
-                    NSLog(@"%@", match.home);
+                    //NSLog(@"%@", match.home);
                     [self.matches addObject:match];
                     [self.tableView reloadData];
                 }];
