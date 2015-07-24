@@ -10,11 +10,12 @@
 #import <Parse/Parse.h>
 #import "Team.h"
 #import "Matches.h"
-
+#import "DetailsViewController.h"
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray *matches;
+@property (nonatomic) int currentMatch;
 @end
 
 @implementation ViewController
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     self.matches=[NSMutableArray new];
     self.tableView.dataSource = self;
+    self.tableView.delegate=self;
     [self getListOfMatches];
     [self.tableView reloadData];
     
@@ -49,6 +51,25 @@
     cell.detailTextLabel.text=date;
     return cell;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.currentMatch=(int)indexPath.row;
+    //NSLog(@"CURRENT %d", self.currentMatch);
+    
+    [self performSegueWithIdentifier:@"Details" sender:self];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"Details"])
+    {
+        DetailsViewController *vc = segue.destinationViewController;
+        Matches *match=[Matches new];
+        match=self.matches[self.currentMatch];
+      //  NSLog(@"CURRENT %d", self.currentMatch);
+        vc.homeTeam=match.homeTeam;
+        vc.awayTeam=match.awayTeam;
+    }
+}
 
 -(void) getListOfMatches{
     PFQuery *query = [PFQuery queryWithClassName:@"Matches"];
@@ -63,6 +84,7 @@
                 PFQuery *query = [PFQuery queryWithClassName:@"Teams"];
                 [query getObjectInBackgroundWithId:hometeamId block:^(PFObject *team, NSError *error) {
                 match.home=team[@"name"];
+                    match.homeTeam=team;
                 
                 }];
                 
@@ -70,6 +92,7 @@
                 PFQuery *query2 = [PFQuery queryWithClassName:@"Teams"];
                 [query2 getObjectInBackgroundWithId:awayteamId block:^(PFObject *team, NSError *error) {
                 match.away=team[@"name"];
+                    match.awayTeam=team;
                     match.date=object[@"day"];
                     NSArray *array=object[@"comments"];
                     match.comments=[array mutableCopy];
@@ -80,7 +103,6 @@
                 
                 
                 
-                
             }
         } else {
             // Log details of the failure
@@ -88,6 +110,33 @@
         }
         
     }];
+    
+    
+
+}
+
+
+-(void) getListOfMatchesOffline{
+
+
+    Matches *match=[Matches new];
+    match.home=@"Barcelona";
+    //match.homeTeam=team;
+    
+    match.away=@"Manchester United";
+    
+    //match.awayTeam=team;
+    
+    NSDate *date=[NSDate new];
+    match.date=date;
+    NSArray *array=@[@"Comment1", @"comment2"];
+    match.comments=[array mutableCopy];
+    
+    [self.matches addObject:match];
+    
+    [self.tableView reloadData];
+
+    
 }
 
 @end

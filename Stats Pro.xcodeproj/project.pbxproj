@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		10859473F9C16AFD7B1B20FE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 558CCC9310ABE464A3E0C935 /* libPods.a */; };
+		F657F9B91B6138AC00F43D28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F657F9B81B6138AC00F43D28 /* ViewController.m */; };
 		F682F3CA1B46878A00F3989A /* chile.png in Resources */ = {isa = PBXBuildFile; fileRef = F682F3C81B46878A00F3989A /* chile.png */; };
 		F682F3CB1B46878A00F3989A /* uru.png in Resources */ = {isa = PBXBuildFile; fileRef = F682F3C91B46878A00F3989A /* uru.png */; };
 		F6E8A5391B4A40A400932561 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E8A5381B4A40A400932561 /* DetailsViewController.m */; };
 		F6E8A53F1B4D174D00932561 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = F6E8A53E1B4D174D00932561 /* circle.png */; };
+		F6E8A5431B4EA02100932561 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E8A5411B4EA02100932561 /* Fabric.framework */; };
+		F6E8A5441B4EA02100932561 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E8A5421B4EA02100932561 /* Crashlytics.framework */; };
 		F6EC33BD1B43DB2F00F5AD9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC33BC1B43DB2F00F5AD9C /* main.m */; };
 		F6EC33C01B43DB2F00F5AD9C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC33BF1B43DB2F00F5AD9C /* AppDelegate.m */; };
-		F6EC33C31B43DB2F00F5AD9C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC33C21B43DB2F00F5AD9C /* ViewController.m */; };
 		F6EC33C61B43DB2F00F5AD9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6EC33C41B43DB2F00F5AD9C /* Main.storyboard */; };
 		F6EC33C81B43DB2F00F5AD9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6EC33C71B43DB2F00F5AD9C /* Images.xcassets */; };
 		F6EC33CB1B43DB2F00F5AD9C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6EC33C91B43DB2F00F5AD9C /* LaunchScreen.xib */; };
@@ -37,18 +39,20 @@
 		558CCC9310ABE464A3E0C935 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF5BF0F8414C23BC2D8CBB3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		87F1CB413224EACBED8E2650 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F657F9B81B6138AC00F43D28 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F682F3C81B46878A00F3989A /* chile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chile.png; sourceTree = "<group>"; };
 		F682F3C91B46878A00F3989A /* uru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uru.png; sourceTree = "<group>"; };
 		F6E8A5371B4A40A400932561 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		F6E8A5381B4A40A400932561 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		F6E8A53E1B4D174D00932561 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		F6E8A5411B4EA02100932561 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		F6E8A5421B4EA02100932561 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		F6EC33B71B43DB2F00F5AD9C /* Stats Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stats Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EC33BB1B43DB2F00F5AD9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6EC33BC1B43DB2F00F5AD9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F6EC33BE1B43DB2F00F5AD9C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F6EC33BF1B43DB2F00F5AD9C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F6EC33C11B43DB2F00F5AD9C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F6EC33C21B43DB2F00F5AD9C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F6EC33C51B43DB2F00F5AD9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6EC33C71B43DB2F00F5AD9C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F6EC33CA1B43DB2F00F5AD9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				10859473F9C16AFD7B1B20FE /* libPods.a in Frameworks */,
+				F6E8A5441B4EA02100932561 /* Crashlytics.framework in Frameworks */,
+				F6E8A5431B4EA02100932561 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +90,8 @@
 		01AF98D75679E7CCC47B0858 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6E8A5411B4EA02100932561 /* Fabric.framework */,
+				F6E8A5421B4EA02100932561 /* Crashlytics.framework */,
 				558CCC9310ABE464A3E0C935 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -125,7 +133,7 @@
 				F6EC33BE1B43DB2F00F5AD9C /* AppDelegate.h */,
 				F6EC33BF1B43DB2F00F5AD9C /* AppDelegate.m */,
 				F6EC33C11B43DB2F00F5AD9C /* ViewController.h */,
-				F6EC33C21B43DB2F00F5AD9C /* ViewController.m */,
+				F657F9B81B6138AC00F43D28 /* ViewController.m */,
 				F6EC33E01B45416000F5AD9C /* Matches.h */,
 				F6EC33E11B45416000F5AD9C /* Matches.m */,
 				F6EC33E31B45437300F5AD9C /* Team.h */,
@@ -181,6 +189,7 @@
 				F6EC33B41B43DB2F00F5AD9C /* Frameworks */,
 				F6EC33B51B43DB2F00F5AD9C /* Resources */,
 				2C6C38E83AAE0DF21981D05E /* Copy Pods Resources */,
+				F6E8A5401B4E9E8B00932561 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -300,6 +309,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		F6E8A5401B4E9E8B00932561 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run b5376e9be65a07e4ccedc0d45357577784c82305 acc78e4991f577d44d425a5646185705b4961f124986d9c94972ac20e066a708";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -307,8 +329,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F657F9B91B6138AC00F43D28 /* ViewController.m in Sources */,
 				F6EC33E51B45437300F5AD9C /* Team.m in Sources */,
-				F6EC33C31B43DB2F00F5AD9C /* ViewController.m in Sources */,
 				F6EC33E21B45416000F5AD9C /* Matches.m in Sources */,
 				F6E8A5391B4A40A400932561 /* DetailsViewController.m in Sources */,
 				F6EC33C01B43DB2F00F5AD9C /* AppDelegate.m in Sources */,
@@ -439,9 +461,14 @@
 			baseConfigurationReference = 7DF5BF0F8414C23BC2D8CBB3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Stats Pro/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "29f7fcee-38a8-423c-bb99-5708a85291d7";
 			};
 			name = Debug;
 		};
@@ -450,9 +477,14 @@
 			baseConfigurationReference = 87F1CB413224EACBED8E2650 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Stats Pro/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "29f7fcee-38a8-423c-bb99-5708a85291d7";
 			};
 			name = Release;
 		};

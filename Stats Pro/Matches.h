@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Team.h"
+#import <Parse/Parse.h>
 
 @interface Matches : NSObject
 
@@ -14,6 +16,8 @@
 @property (nonatomic, strong) NSString *away;
 @property (nonatomic, strong) NSMutableArray *comments;
 @property (nonatomic, strong) NSDate *date;
+@property (nonatomic) PFObject *homeTeam;
+@property (nonatomic) PFObject *awayTeam;
 
 -(void) addComment:(NSString *)string;
 

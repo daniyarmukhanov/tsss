@@ -7,7 +7,12 @@
 //
 
 #import "ViewController.h"
+#import <Parse/Parse.h>
 
 @interface DetailsViewController : ViewController
+
+@property (nonatomic) PFObject *homeTeam;
+@property (nonatomic) PFObject *awayTeam;
+
 
 @end
