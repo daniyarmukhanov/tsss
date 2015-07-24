@@ -78,12 +78,6 @@
                                     <constraint firstAttribute="width" secondItem="U8K-17-HWh" secondAttribute="height" multiplier="1:1" id="vR5-5j-VQ3"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Июль 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvr-i5-axY">
-                                <rect key="frame" x="131" y="118" width="59" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4HT-dx-gU9">
                                 <rect key="frame" x="6" y="-62" width="0.0" height="90"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -283,6 +277,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Июль 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvr-i5-axY">
+                                <rect key="frame" x="131" y="118" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -375,7 +375,7 @@
                         <outlet property="awayYellow" destination="bQi-qp-eEC" id="7EJ-wC-6dg"/>
                         <outlet property="comments" destination="UH3-37-voY" id="f8L-Gj-xrW"/>
                         <outlet property="cornerBar" destination="oMT-jJ-Oq5" id="wGg-Pp-xDz"/>
-                        <outlet property="dateLabel" destination="Wvr-i5-axY" id="mKq-8f-fq1"/>
+                        <outlet property="dateText" destination="Wvr-i5-axY" id="OOd-Dn-ivX"/>
                         <outlet property="foulsBar" destination="Qn9-On-rp5" id="XTk-Ne-AMc"/>
                         <outlet property="homeConceded" destination="QTQ-Ia-sDe" id="C0d-T4-f5T"/>
                         <outlet property="homeCorner" destination="7BR-gr-RXD" id="iPc-f9-TxA"/>

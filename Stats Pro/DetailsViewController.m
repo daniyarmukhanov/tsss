@@ -33,6 +33,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *awayYellow;
 @property (weak, nonatomic) IBOutlet UIView *yellowBar;
 @property (weak, nonatomic) IBOutlet UILabel *comments;
+@property (weak, nonatomic) IBOutlet UILabel *dateText;
+
+
 
 
 
@@ -76,6 +79,7 @@
     }
     self.away =[[[self.away reverseObjectEnumerator]allObjects] mutableCopy];
 //   NSLog(@"%@",self.awayTeam);
+   
     PFFile *file=self.homeTeam[@"logo"];
     [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
@@ -93,9 +97,20 @@
         }
     }];
     
+    self.homeImage.contentMode = UIViewContentModeCenter;
+    self.homeImage.contentMode = UIViewContentModeScaleAspectFit;
+    self.awayImage.contentMode = UIViewContentModeCenter;
+    self.awayImage.contentMode = UIViewContentModeScaleAspectFit;
+    
+    
+    NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+    [dateformate setDateFormat:@"HH:mm"]; // Date formater
+    NSDate *dd=self.match.date;
+    NSString *date = [dateformate stringFromDate:dd];
+    self.dateText.text=date;
+    
     [self showText];
     [self colorResults];
-   // self.comments.text=@"sampfdsle \n dsf";
     [self showComments];
     
     
