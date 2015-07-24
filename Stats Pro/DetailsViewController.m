@@ -23,6 +23,17 @@
 @property (weak, nonatomic) IBOutlet UILabel *homeConceded;
 @property (weak, nonatomic) IBOutlet UILabel *awayConceded;
 @property (weak, nonatomic) IBOutlet UIView *awayConcededBar;
+@property (weak, nonatomic) IBOutlet UILabel *homeCorner;
+@property (weak, nonatomic) IBOutlet UILabel *awayCorner;
+@property (weak, nonatomic) IBOutlet UIView *cornerBar;
+@property (weak, nonatomic) IBOutlet UILabel *homeFoul;
+@property (weak, nonatomic) IBOutlet UILabel *awayFoul;
+@property (weak, nonatomic) IBOutlet UIView *foulsBar;
+@property (weak, nonatomic) IBOutlet UILabel *homeYellow;
+@property (weak, nonatomic) IBOutlet UILabel *awayYellow;
+@property (weak, nonatomic) IBOutlet UIView *yellowBar;
+@property (weak, nonatomic) IBOutlet UILabel *comments;
+
 
 
 @end
@@ -31,6 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title=[NSString stringWithFormat:@"%@ - %@", self.homeTeam[@"name"], self.awayTeam[@"name"] ];
     self.home=[NSMutableArray new];
     self.away=[NSMutableArray new];
     self.orangeDot.backgroundColor=[self colorWithHexString:@"f5a623"];
@@ -82,6 +94,9 @@
     }];
     
     [self showText];
+    [self colorResults];
+   // self.comments.text=@"sampfdsle \n dsf";
+    [self showComments];
     
     
     
@@ -137,6 +152,69 @@
     avg=avg/5;
     myString = [formatter stringFromNumber:@(avg)];
     self.awayConceded.text=myString;
+    
+    homescored=self.homeTeam[@"corners"];
+    avg=0;
+    for (int i=0; i<5; i++) {
+        NSNumber *tmp=homescored[i];
+        avg+=[tmp intValue];
+    }
+    avg=avg/5;
+    myString = [formatter stringFromNumber:@(avg)];
+    self.homeCorner.text=myString;
+    
+    homescored=self.awayTeam[@"corners"];
+    avg=0;
+    for (int i=0; i<5; i++) {
+        NSNumber *tmp=homescored[i];
+        avg+=[tmp intValue];
+    }
+    avg=avg/5;
+    myString = [formatter stringFromNumber:@(avg)];
+    self.awayCorner.text=myString;
+    
+    homescored=self.homeTeam[@"fouls"];
+    avg=0;
+    for (int i=0; i<5; i++) {
+        NSNumber *tmp=homescored[i];
+        avg+=[tmp intValue];
+    }
+    avg=avg/5;
+    myString = [formatter stringFromNumber:@(avg)];
+    self.homeFoul.text=myString;
+    
+    homescored=self.awayTeam[@"fouls"];
+    avg=0;
+    for (int i=0; i<5; i++) {
+        NSNumber *tmp=homescored[i];
+        avg+=[tmp intValue];
+    }
+    avg=avg/5;
+    myString = [formatter stringFromNumber:@(avg)];
+    self.awayFoul.text=myString;
+    
+    homescored=self.homeTeam[@"yellow"];
+    avg=0;
+    for (int i=0; i<5; i++) {
+        NSNumber *tmp=homescored[i];
+        avg+=[tmp intValue];
+    }
+    avg=avg/5;
+    myString = [formatter stringFromNumber:@(avg)];
+    self.homeYellow.text=myString;
+    
+    homescored=self.awayTeam[@"yellow"];
+    avg=0;
+    for (int i=0; i<5; i++) {
+        NSNumber *tmp=homescored[i];
+        avg+=[tmp intValue];
+    }
+    avg=avg/5;
+    myString = [formatter stringFromNumber:@(avg)];
+    self.awayYellow.text=myString;
+    
+    
+    
     [self adjustBars];
 }
 
@@ -145,6 +223,7 @@
     double sum=[self.homeScored.text doubleValue]+[self.awayScored.text doubleValue];
     UIView *homeScoredBar=[[UIView alloc]initWithFrame:CGRectMake(0, 0, width*[self.homeScored.text doubleValue]/sum, 18)];
     [homeScoredBar setBackgroundColor:[self colorWithHexString:@"b8e986"]];
+    self.awayScoredBar.backgroundColor=[self colorWithHexString:@"d0021b"];
     [self.awayScoredBar addSubview:homeScoredBar];
     if([self.homeScored.text doubleValue]<[self.awayScored.text doubleValue]){
         self.awayScoredBar.backgroundColor=[self colorWithHexString:@"b8e986"];
@@ -154,9 +233,40 @@
     sum=[self.homeConceded.text doubleValue]+[self.awayConceded.text doubleValue];
     homeScoredBar=[[UIView alloc]initWithFrame:CGRectMake(0, 0, width*[self.homeConceded.text doubleValue]/sum, 18)];
     [homeScoredBar setBackgroundColor:[self colorWithHexString:@"b8e986"]];
+    self.awayConcededBar.backgroundColor=[self colorWithHexString:@"d0021b"];
     [self.awayConcededBar addSubview:homeScoredBar];
     if([self.homeConceded.text doubleValue]<[self.awayConceded.text doubleValue]){
         self.awayConcededBar.backgroundColor=[self colorWithHexString:@"b8e986"];
+        homeScoredBar.backgroundColor=[self colorWithHexString:@"d0021b"];
+    }
+    
+    sum=[self.homeCorner.text doubleValue]+[self.awayCorner.text doubleValue];
+    homeScoredBar=[[UIView alloc]initWithFrame:CGRectMake(0, 0, width*[self.homeCorner.text doubleValue]/sum, 18)];
+    [homeScoredBar setBackgroundColor:[self colorWithHexString:@"b8e986"]];
+    self.cornerBar.backgroundColor=[self colorWithHexString:@"d0021b"];
+    [self.cornerBar addSubview:homeScoredBar];
+    if([self.homeCorner.text doubleValue]<[self.awayCorner.text doubleValue]){
+        self.cornerBar.backgroundColor=[self colorWithHexString:@"b8e986"];
+        homeScoredBar.backgroundColor=[self colorWithHexString:@"d0021b"];
+    }
+    
+    sum=[self.homeFoul.text doubleValue]+[self.awayFoul.text doubleValue];
+    homeScoredBar=[[UIView alloc]initWithFrame:CGRectMake(0, 0, width*[self.homeFoul.text doubleValue]/sum, 18)];
+    [homeScoredBar setBackgroundColor:[self colorWithHexString:@"b8e986"]];
+    self.foulsBar.backgroundColor=[self colorWithHexString:@"d0021b"];
+    [self.foulsBar addSubview:homeScoredBar];
+    if([self.homeFoul.text doubleValue]<[self.awayFoul.text doubleValue]){
+        self.foulsBar.backgroundColor=[self colorWithHexString:@"b8e986"];
+        homeScoredBar.backgroundColor=[self colorWithHexString:@"d0021b"];
+    }
+    
+    sum=[self.homeYellow.text doubleValue]+[self.awayYellow.text doubleValue];
+    homeScoredBar=[[UIView alloc]initWithFrame:CGRectMake(0, 0, width*[self.homeYellow.text doubleValue]/sum, 18)];
+    [homeScoredBar setBackgroundColor:[self colorWithHexString:@"b8e986"]];
+    self.yellowBar.backgroundColor=[self colorWithHexString:@"d0021b"];
+    [self.yellowBar addSubview:homeScoredBar];
+    if([self.homeYellow.text doubleValue]<[self.awayYellow.text doubleValue]){
+        self.yellowBar.backgroundColor=[self colorWithHexString:@"b8e986"];
         homeScoredBar.backgroundColor=[self colorWithHexString:@"d0021b"];
     }
 
@@ -198,14 +308,54 @@
                            alpha:1.0f];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) colorResults{
+    UIImageView *dot=[UIImageView new];
+    int score=2;
+    NSNumber *number=[NSNumber new];
+    NSArray *array=[NSArray new];
+    for (int i=0; i<5; i++) {
+        dot=self.home[i];
+        array=self.homeTeam[@"winlose"];
+        number=array[i];
+        score=[number intValue];
+        if(score==0){
+            dot.backgroundColor=[self colorWithHexString:@"d0021b"];
+        }else if(score==1){
+            dot.backgroundColor=[self colorWithHexString:@"f5a623"];
+        }else if(score==3){
+            dot.backgroundColor=[self colorWithHexString:@"b8e986"];
+        }
+    }
+    for (int i=0; i<5; i++) {
+        dot=self.away[i];
+        array=self.awayTeam[@"winlose"];
+        number=array[i];
+        score=[number intValue];
+        if(score==0){
+            dot.backgroundColor=[self colorWithHexString:@"d0021b"];
+        }else if(score==1){
+            dot.backgroundColor=[self colorWithHexString:@"f5a623"];
+        }else if(score==3){
+            dot.backgroundColor=[self colorWithHexString:@"b8e986"];
+        }
+    }
 }
-*/
+
+-(void)showComments{
+    NSString *str=@"";
+    self.comments.numberOfLines=self.match.comments.count+1;
+    for (int i=0; i<self.match.comments.count; i++) {
+        if(i==0){
+            str=self.match.comments[i];
+        }else{
+        str=[NSString stringWithFormat:@"%@ \n%@", str, self.match.comments[i]];
+        }
+    }
+    self.comments.text=str;
+    
+    NSLog(@"%@", str);
+    
+}
+
 
 @end

@@ -68,6 +68,7 @@
       //  NSLog(@"CURRENT %d", self.currentMatch);
         vc.homeTeam=match.homeTeam;
         vc.awayTeam=match.awayTeam;
+        vc.match=match;
     }
 }
 

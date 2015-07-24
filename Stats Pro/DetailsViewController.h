@@ -8,11 +8,14 @@
 
 #import "ViewController.h"
 #import <Parse/Parse.h>
+#import "Matches.h"
+#import <UIKit/UIKit.h>
 
 @interface DetailsViewController : ViewController
 
 @property (nonatomic) PFObject *homeTeam;
 @property (nonatomic) PFObject *awayTeam;
+@property (nonatomic) Matches *match;
 
 
 @end
