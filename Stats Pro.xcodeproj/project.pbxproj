@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		10859473F9C16AFD7B1B20FE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 558CCC9310ABE464A3E0C935 /* libPods.a */; };
 		F657F9B91B6138AC00F43D28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F657F9B81B6138AC00F43D28 /* ViewController.m */; };
+		F657F9BB1B636F5900F43D28 /* CellDesign.xib in Resources */ = {isa = PBXBuildFile; fileRef = F657F9BA1B636F5900F43D28 /* CellDesign.xib */; };
+		F657F9BE1B6371FB00F43D28 /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F657F9BD1B6371FB00F43D28 /* TableCell.m */; };
 		F682F3CA1B46878A00F3989A /* chile.png in Resources */ = {isa = PBXBuildFile; fileRef = F682F3C81B46878A00F3989A /* chile.png */; };
 		F682F3CB1B46878A00F3989A /* uru.png in Resources */ = {isa = PBXBuildFile; fileRef = F682F3C91B46878A00F3989A /* uru.png */; };
 		F6E8A5391B4A40A400932561 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E8A5381B4A40A400932561 /* DetailsViewController.m */; };
@@ -40,6 +42,9 @@
 		7DF5BF0F8414C23BC2D8CBB3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		87F1CB413224EACBED8E2650 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F657F9B81B6138AC00F43D28 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F657F9BA1B636F5900F43D28 /* CellDesign.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellDesign.xib; sourceTree = "<group>"; };
+		F657F9BC1B6371FB00F43D28 /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
+		F657F9BD1B6371FB00F43D28 /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
 		F682F3C81B46878A00F3989A /* chile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chile.png; sourceTree = "<group>"; };
 		F682F3C91B46878A00F3989A /* uru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uru.png; sourceTree = "<group>"; };
 		F6E8A5371B4A40A400932561 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
@@ -139,6 +144,9 @@
 				F6EC33E31B45437300F5AD9C /* Team.h */,
 				F6EC33E41B45437300F5AD9C /* Team.m */,
 				F6EC33C41B43DB2F00F5AD9C /* Main.storyboard */,
+				F657F9BA1B636F5900F43D28 /* CellDesign.xib */,
+				F657F9BC1B6371FB00F43D28 /* TableCell.h */,
+				F657F9BD1B6371FB00F43D28 /* TableCell.m */,
 				F6E8A5371B4A40A400932561 /* DetailsViewController.h */,
 				F6E8A5381B4A40A400932561 /* DetailsViewController.m */,
 				F6EC33C71B43DB2F00F5AD9C /* Images.xcassets */,
@@ -260,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F657F9BB1B636F5900F43D28 /* CellDesign.xib in Resources */,
 				F6EC33C61B43DB2F00F5AD9C /* Main.storyboard in Resources */,
 				F682F3CA1B46878A00F3989A /* chile.png in Resources */,
 				F6EC33CB1B43DB2F00F5AD9C /* LaunchScreen.xib in Resources */,
@@ -333,6 +342,7 @@
 				F6EC33E51B45437300F5AD9C /* Team.m in Sources */,
 				F6EC33E21B45416000F5AD9C /* Matches.m in Sources */,
 				F6E8A5391B4A40A400932561 /* DetailsViewController.m in Sources */,
+				F657F9BE1B6371FB00F43D28 /* TableCell.m in Sources */,
 				F6EC33C01B43DB2F00F5AD9C /* AppDelegate.m in Sources */,
 				F6EC33BD1B43DB2F00F5AD9C /* main.m in Sources */,
 			);

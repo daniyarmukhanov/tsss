@@ -16,7 +16,6 @@
 @property (nonatomic) NSMutableArray *away;
 @property (weak, nonatomic) IBOutlet UIImageView *homeImage;
 @property (weak, nonatomic) IBOutlet UIImageView *awayImage;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *homeScored;
 @property (weak, nonatomic) IBOutlet UILabel *awayScored;
 @property (weak, nonatomic) IBOutlet UIView *awayScoredBar;

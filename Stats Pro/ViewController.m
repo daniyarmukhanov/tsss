@@ -11,6 +11,7 @@
 #import "Team.h"
 #import "Matches.h"
 #import "DetailsViewController.h"
+#import "TableCell.h"
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -22,11 +23,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //[self.tableView registerClass: [TableCell class] forCellReuseIdentifier:@"SimpleTableCell"];
+    //[UITableView registerClass: [TableCell class] forCellReuseIdentifire:@"SimpleTableCell"];
     self.matches=[NSMutableArray new];
     self.tableView.dataSource = self;
     self.tableView.delegate=self;
     [self getListOfMatches];
     [self.tableView reloadData];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -41,16 +45,48 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"forIndexPath:indexPath];
+    TableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SimpleTableCell" forIndexPath:indexPath];
+    if (cell == nil)
+    {
+       // NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableCell" owner:self options:nil];
+        [tableView registerNib:[UINib nibWithNibName:@"CellDesign" bundle:nil ]forCellReuseIdentifier:@"SimpleTablecell"];
+        cell=[tableView dequeueReusableCellWithIdentifier:@"SimpleTableCell"];
+        //cell = [nib objectAtIndex:0];
+        NSLog(@"LOL");
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     Matches *match=self.matches[indexPath.row];
-    cell.textLabel.text=[NSString stringWithFormat:@"%@ - %@", match.home, match.away];
+    cell.homeTeam.text=match.home;
+    cell.awayTeam.text=match.away;
     NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
-    [dateformate setDateFormat:@"MM-dd HH:mm"]; // Date formater
-    NSDate *dd=match.date;
-    NSString *date = [dateformate stringFromDate:dd];
-    cell.detailTextLabel.text=date;
+    [dateformate setDateFormat:@"dd MMMM"]; // Date formater
+    NSLocale *RU=[[NSLocale alloc]initWithLocaleIdentifier:@"ru_RU"];
+    
+    dateformate.locale=RU;
+        NSDate *dd=match.date;
+        NSString *date = [dateformate stringFromDate:dd];
+        cell.timeDay.text=date;
+        [dateformate setDateFormat:@"HH:mm"]; // Date formater
+        dd=match.date;
+        date = [dateformate stringFromDate:dd];
+        cell.timeHour.text=date;
     return cell;
 }
+//-(void)tableView:(UITableView *)tableView willDisplayCell:(TableCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    Matches *match=self.matches[indexPath.row];
+//    cell.homeTeam.text=match.home;
+//    cell.awayTeam.text=match.away;
+//    NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+//    [dateformate setDateFormat:@"MM-dd"]; // Date formater
+//    NSDate *dd=match.date;
+//    NSString *date = [dateformate stringFromDate:dd];
+//    cell.timeDay.text=date;
+//    [dateformate setDateFormat:@"HH-mm"]; // Date formater
+//    dd=match.date;
+//    date = [dateformate stringFromDate:dd];
+//    cell.timeHour.text=date;
+//}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.currentMatch=(int)indexPath.row;
     //NSLog(@"CURRENT %d", self.currentMatch);
