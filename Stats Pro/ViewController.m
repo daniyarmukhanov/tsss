@@ -13,7 +13,8 @@
 #import "DetailsViewController.h"
 #import "TableCell.h"
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @property (strong, nonatomic) NSMutableArray *matches;
 @property (nonatomic) int currentMatch;
@@ -23,14 +24,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self.tableView registerClass: [TableCell class] forCellReuseIdentifier:@"SimpleTableCell"];
-    //[UITableView registerClass: [TableCell class] forCellReuseIdentifire:@"SimpleTableCell"];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor whiteColor];
+    self.refreshControl.attributedTitle= [[NSMutableAttributedString alloc] initWithString:@"Загрузка..."];
+    self.refreshControl.tintColor = [UIColor blackColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(getListOfMatches)
+                  forControlEvents:UIControlEventValueChanged];
+    
     self.matches=[NSMutableArray new];
     self.tableView.dataSource = self;
     self.tableView.delegate=self;
     [self getListOfMatches];
     [self.tableView reloadData];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView addSubview:self.refreshControl];
     
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -110,10 +118,14 @@
 
 -(void) getListOfMatches{
     PFQuery *query = [PFQuery queryWithClassName:@"Matches"];
+    //[query fromLocalDatastore];
+    [query addAscendingOrder:@"day"];
+    [self.matches removeAllObjects];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded. The first 100 objects are available in objects
-           // NSLog(@"%@", objects);
+        // The find succeeded. The first 100 objects are available in objects
+        // NSLog(@"%@", objects);
+            [PFObject pinAllInBackground:objects];
             
             for (PFObject *object in objects){
             Matches *match=[Matches new];
@@ -122,6 +134,7 @@
                 [query getObjectInBackgroundWithId:hometeamId block:^(PFObject *team, NSError *error) {
                 match.home=team[@"name"];
                     match.homeTeam=team;
+                    [team pinInBackground];
                 
                 }];
                 
@@ -129,6 +142,60 @@
                 PFQuery *query2 = [PFQuery queryWithClassName:@"Teams"];
                 [query2 getObjectInBackgroundWithId:awayteamId block:^(PFObject *team, NSError *error) {
                 match.away=team[@"name"];
+                    [team pinInBackground];
+                    match.awayTeam=team;
+                    match.date=object[@"day"];
+                    int timestamp=[match.date timeIntervalSince1970];
+                    timestamp-=21600;
+                    match.date=[NSDate dateWithTimeIntervalSince1970:timestamp];
+                    NSArray *array=object[@"comments"];
+                    match.comments=[array mutableCopy];
+                    //NSLog(@"%@", match.home);
+                    [self.matches addObject:match];
+                    [self.tableView reloadData];
+                }];
+                
+                
+                
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        
+    }];
+    
+    
+    [self.refreshControl endRefreshing];
+}
+
+
+-(void) getListOfMatchesOffline{
+    PFQuery *query = [PFQuery queryWithClassName:@"Matches"];
+    [query fromLocalDatastore];
+    [query addAscendingOrder:@"day"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded. The first 100 objects are available in objects
+            // NSLog(@"%@", objects);
+            [PFObject pinAllInBackground:objects];
+            
+            for (PFObject *object in objects){
+                Matches *match=[Matches new];
+                NSString *hometeamId=object[@"home"];
+                PFQuery *query = [PFQuery queryWithClassName:@"Teams"];
+                [query getObjectInBackgroundWithId:hometeamId block:^(PFObject *team, NSError *error) {
+                    match.home=team[@"name"];
+                    match.homeTeam=team;
+                    [team pinInBackground];
+                    
+                }];
+                
+                NSString *awayteamId=object[@"away"];
+                PFQuery *query2 = [PFQuery queryWithClassName:@"Teams"];
+                [query2 getObjectInBackgroundWithId:awayteamId block:^(PFObject *team, NSError *error) {
+                    match.away=team[@"name"];
+                    [team pinInBackground];
                     match.awayTeam=team;
                     match.date=object[@"day"];
                     NSArray *array=object[@"comments"];
@@ -149,31 +216,44 @@
     }];
     
     
-
 }
 
-
--(void) getListOfMatchesOffline{
-
-
-    Matches *match=[Matches new];
-    match.home=@"Barcelona";
-    //match.homeTeam=team;
-    
-    match.away=@"Manchester United";
-    
-    //match.awayTeam=team;
-    
-    NSDate *date=[NSDate new];
-    match.date=date;
-    NSArray *array=@[@"Comment1", @"comment2"];
-    match.comments=[array mutableCopy];
-    
-    [self.matches addObject:match];
-    
-    [self.tableView reloadData];
-
-    
-}
+//- (void) fetchDataFromLocalstore: (BOOL) fromLocalStore loader:(BOOL)loader{
+//    PFQuery *query = [PFQuery queryWithClassName:@"Tamada"];
+//    if(fromLocalStore){
+//        [query fromLocalDatastore];
+//    }
+//    if (loader) {
+//        [KVNProgress show];
+//    }
+//    [query findObjectsInBackgroundWithBlock:^(NSArray * objects, NSError * error){
+//        [KVNProgress dismiss];
+//        if(!error){
+//            if([objects count] == 0){
+//                if(fromLocalStore){
+//                    [self fetchDataFromLocalstore:NO loader:YES];
+//                }
+//            }
+//            else{
+//                self.regularTamadas = [NSMutableArray new];
+//                self.proTamadas = [NSMutableArray new];
+//                for (Tamada *tamada in objects) {
+//                    if ([tamada.isPro boolValue]) {
+//                        [self.proTamadas addObject:tamada];
+//                    }
+//                    else {
+//                        [self.regularTamadas addObject:tamada];
+//                    }
+//                    [self.tableView reloadData];
+//                }
+//                [PFObject pinAllInBackground:objects];
+//            }
+//        }
+//        else{
+//            NSString *errorString = [error userInfo][@"error"];
+//            [UIAlertView alertView:errorString];
+//        }
+//    }];
+//}
 
 @end

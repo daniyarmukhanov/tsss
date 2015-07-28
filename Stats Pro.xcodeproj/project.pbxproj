@@ -52,7 +52,7 @@
 		F6E8A53E1B4D174D00932561 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		F6E8A5411B4EA02100932561 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		F6E8A5421B4EA02100932561 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		F6EC33B71B43DB2F00F5AD9C /* Stats Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stats Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6EC33B71B43DB2F00F5AD9C /* Осьминог Пауль.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Осьминог Пауль.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EC33BB1B43DB2F00F5AD9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6EC33BC1B43DB2F00F5AD9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F6EC33BE1B43DB2F00F5AD9C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		F6EC33B81B43DB2F00F5AD9C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F6EC33B71B43DB2F00F5AD9C /* Stats Pro.app */,
+				F6EC33B71B43DB2F00F5AD9C /* Осьминог Пауль.app */,
 				F6EC33D01B43DB3000F5AD9C /* Stats ProTests.xctest */,
 			);
 			name = Products;
@@ -205,7 +205,7 @@
 			);
 			name = "Stats Pro";
 			productName = "Stats Pro";
-			productReference = F6EC33B71B43DB2F00F5AD9C /* Stats Pro.app */;
+			productReference = F6EC33B71B43DB2F00F5AD9C /* Осьминог Пауль.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F6EC33CF1B43DB3000F5AD9C /* Stats ProTests */ = {
@@ -471,14 +471,15 @@
 			baseConfigurationReference = 7DF5BF0F8414C23BC2D8CBB3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Stats Pro/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "29f7fcee-38a8-423c-bb99-5708a85291d7";
+				PRODUCT_NAME = "Осьминог Пауль";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -487,14 +488,15 @@
 			baseConfigurationReference = 87F1CB413224EACBED8E2650 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Stats Pro/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "29f7fcee-38a8-423c-bb99-5708a85291d7";
+				PRODUCT_NAME = "Осьминог Пауль";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

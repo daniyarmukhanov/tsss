@@ -28,8 +28,9 @@
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    return YES;
+    
     [Fabric with:@[CrashlyticsKit]];
+    return YES;
 
 }
 
